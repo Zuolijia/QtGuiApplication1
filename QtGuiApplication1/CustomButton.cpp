@@ -11,6 +11,18 @@ CustomButton::~CustomButton()
 {
 }
 
+void CustomButton::mousePressEvent(QMouseEvent *e)
+{
+    if (e->button() == Qt::LeftButton)
+    {
+        qDebug() << "left";
+    }
+    else
+    {
+        QPushButton::mousePressEvent(e);
+    }
+}
+
 void CustomButton::onButtonCliecked()
 {
     qDebug() << "You clicked this!";

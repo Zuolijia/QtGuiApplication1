@@ -2,6 +2,11 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QTextEdit>
+#include <QEvent>
+#include <QKeyEvent>
+#include <QTreeWidget>
+#include <QTreeWidgetItem>
 #include "newspaper.h"
 #include "reader.h"
 
@@ -12,6 +17,9 @@ public:
 	MainWindow(QWidget *parent = 0);
 	~MainWindow();
 
+protected:
+    bool eventFilter(QObject *watched, QEvent *event);
+
 private:
 	void open();
 
@@ -19,6 +27,9 @@ private:
     QAction *sendpaperAction;
     Newspaper m_newspaper;
     Reader    m_reader;
+
+    QTextEdit *m_textEdit;
+    QTreeWidget m_treeWidget;
 };
 
 #endif // MAINWINDOW_H

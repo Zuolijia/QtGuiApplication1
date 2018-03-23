@@ -7,6 +7,7 @@
 #include "mainwindow.h"
 #include "newspaper.h"
 #include "reader.h"
+#include "CustomButton.h"
 
 class EventLabel :public QLabel
 {
@@ -39,14 +40,18 @@ int main(int argc, char *argv[])
 {
 	QApplication app(argc, argv);
 
-    /*MainWindow win;
-    win.show();*/
+    MainWindow win;
+    win.show();
 
-    EventLabel *label = new EventLabel;
+    /*EventLabel *label = new EventLabel;
     label->setWindowTitle("MouseEvent Demo");
     label->resize(300, 200);
     label->setMouseTracking(true);
-    label->show();
+    label->show();*/
+
+    /*CustomButton btn;
+    btn.setText(QObject::tr("This is a Button"));
+    btn.show();*/
 	
 	return app.exec();
 }
