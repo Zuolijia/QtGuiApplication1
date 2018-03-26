@@ -7,6 +7,10 @@
 #include <QKeyEvent>
 #include <QTreeWidget>
 #include <QTreeWidgetItem>
+#include <QDragEnterEvent>
+#include <QDropEvent>
+#include <QMimeData>
+
 #include "newspaper.h"
 #include "reader.h"
 
@@ -19,9 +23,12 @@ public:
 
 protected:
     bool eventFilter(QObject *watched, QEvent *event);
+    void dragEnterEvent(QDragEnterEvent *event);
+    void dropEvent(QDropEvent *event);
 
 private:
 	void open();
+    bool readFile(const QString &fileName);
 
 	QAction *openAction;
     QAction *sendpaperAction;

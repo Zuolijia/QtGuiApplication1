@@ -11,7 +11,7 @@
 MainWindow::MainWindow(QWidget *parent) :
 	QMainWindow(parent)
 {
-	setWindowTitle(tr("Main Window"));
+	setWindowTitle(tr("Text Editor"));
 
 	openAction = new QAction(QIcon(":/images/doc-open"), tr("&Open..."), this);
 	openAction->setShortcuts(QKeySequence::Open);
@@ -43,6 +43,8 @@ MainWindow::MainWindow(QWidget *parent) :
 	statusBar();
 
     m_textEdit = new QTextEdit;
+    m_textEdit->setAcceptDrops(false);
+    setAcceptDrops(true);
 
     m_treeWidget.setColumnCount(1);
     QTreeWidgetItem *root = new QTreeWidgetItem(&m_treeWidget,
@@ -91,7 +93,47 @@ bool MainWindow::eventFilter(QObject *watched, QEvent *event)
     }
 }
 
+void MainWindow::dragEnterEvent(QDragEnterEvent *event)
+{
+    if (event->mimeData()->hasFormat("text/uri-list"))
+    {
+        event->acceptProposedAction();
+    }
+}
+
+void MainWindow::dropEvent(QDropEvent *event)
+{
+    QList<QUrl> urls = event->mimeData()->urls();
+    if (urls.isEmpty())
+    {
+        return;
+    }
+    QString fileName = urls.first().toLocalFile();
+    if (fileName.isEmpty())
+    {
+        return;
+    }
+    if (readFile(fileName))
+    {
+        setWindowTitle(tr("%1 - %2").arg(fileName, tr("Drag File")));
+    }
+}
+
 void MainWindow::open()
 {
 	QMessageBox::information(this, tr("Information"), tr("Open"));
+}
+
+bool MainWindow::readFile(const QString &fileName)
+{
+    bool r = false;
+    QFile file(fileName);
+    QString content;
+    if (file.open(QIODevice::ReadOnly))
+    {
+        content = file.readAll();
+        r = true;
+    }
+    m_textEdit->setText(content);
+    return r;
 }

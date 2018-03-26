@@ -1,4 +1,7 @@
 <RCC>
-    <qresource prefix="QtGuiApplication1">
+    <qresource prefix="/">
+        <file>Resources/leftarrow.png</file>
+        <file>Resources/person.png</file>
+        <file>Resources/rightarrow.png</file>
     </qresource>
 </RCC>

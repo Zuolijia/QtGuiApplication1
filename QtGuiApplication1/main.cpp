@@ -10,6 +10,8 @@
 #include "reader.h"
 #include "CustomButton.h"
 #include "CurrencyModel.h"
+#include "DragListDialog.h"
+#include "DataTableWidget.h"
 
 class EventLabel :public QLabel
 {
@@ -55,7 +57,7 @@ int main(int argc, char *argv[])
     btn.setText(QObject::tr("This is a Button"));
     btn.show();*/
 
-    QMap<QString, double> data;
+    /*QMap<QString, double> data;
     data["USD"] = 1.0000;
     data["CNY"] = 0.1628;
     data["GBP"] = 1.5361;
@@ -67,7 +69,21 @@ int main(int argc, char *argv[])
     model->setCurrencyMap(data);
     view.setModel(model);
     view.resize(600, 200);
-    view.show();
+    view.show();*/
+
+    /*DragListDialog dialog;
+    dialog.show();*/
+
+    QWidget content;
+    DataTableWidget *topTable = new DataTableWidget(&content);
+    InitTable(topTable);
+
+    DataTableWidget *bottomTable = new DataTableWidget(&content);
+
+    QVBoxLayout *layout = new QVBoxLayout(&content);
+    layout->addWidget(topTable);
+    layout->addWidget(bottomTable);
+    content.show();
 	
 	return app.exec();
 }
