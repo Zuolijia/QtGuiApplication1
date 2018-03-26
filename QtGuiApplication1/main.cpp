@@ -12,6 +12,7 @@
 #include "CurrencyModel.h"
 #include "DragListDialog.h"
 #include "DataTableWidget.h"
+#include "ClipboardDemo.h"
 
 class EventLabel :public QLabel
 {
@@ -74,7 +75,7 @@ int main(int argc, char *argv[])
     /*DragListDialog dialog;
     dialog.show();*/
 
-    QWidget content;
+    /*QWidget content;
     DataTableWidget *topTable = new DataTableWidget(&content);
     InitTable(topTable);
 
@@ -83,7 +84,10 @@ int main(int argc, char *argv[])
     QVBoxLayout *layout = new QVBoxLayout(&content);
     layout->addWidget(topTable);
     layout->addWidget(bottomTable);
-    content.show();
+    content.show();*/
+
+    ClipboardDemo clipdemo;
+    clipdemo.show();
 	
 	return app.exec();
 }

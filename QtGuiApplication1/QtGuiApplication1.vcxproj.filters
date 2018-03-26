@@ -127,6 +127,15 @@
     <ClCompile Include="DataTableWidget.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_ClipboardDemo.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_ClipboardDemo.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="ClipboardDemo.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="QtGuiApplication1.h">
@@ -163,6 +172,9 @@
       <Filter>Header Files</Filter>
     </CustomBuild>
     <CustomBuild Include="DataTableWidget.h">
+      <Filter>Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="ClipboardDemo.h">
       <Filter>Header Files</Filter>
     </CustomBuild>
   </ItemGroup>
