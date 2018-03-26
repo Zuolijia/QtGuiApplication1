@@ -3,11 +3,13 @@
 #include <QCoreApplication>
 #include <QLabel>
 #include <QMouseEvent>
+#include <QTableView>
 
 #include "mainwindow.h"
 #include "newspaper.h"
 #include "reader.h"
 #include "CustomButton.h"
+#include "CurrencyModel.h"
 
 class EventLabel :public QLabel
 {
@@ -40,8 +42,8 @@ int main(int argc, char *argv[])
 {
 	QApplication app(argc, argv);
 
-    MainWindow win;
-    win.show();
+    /*MainWindow win;
+    win.show();*/
 
     /*EventLabel *label = new EventLabel;
     label->setWindowTitle("MouseEvent Demo");
@@ -52,6 +54,20 @@ int main(int argc, char *argv[])
     /*CustomButton btn;
     btn.setText(QObject::tr("This is a Button"));
     btn.show();*/
+
+    QMap<QString, double> data;
+    data["USD"] = 1.0000;
+    data["CNY"] = 0.1628;
+    data["GBP"] = 1.5361;
+    data["EUR"] = 1.2992;
+    data["HKD"] = 0.1289;
+
+    QTableView view;
+    CurrencyModel *model = new CurrencyModel(&view);
+    model->setCurrencyMap(data);
+    view.setModel(model);
+    view.resize(600, 200);
+    view.show();
 	
 	return app.exec();
 }
