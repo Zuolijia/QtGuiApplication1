@@ -6,6 +6,7 @@
 #include <QTableView>
 
 #include "mainwindow.h"
+#include "QtGuiApplication1.h"
 #include "newspaper.h"
 #include "reader.h"
 #include "CustomButton.h"
@@ -92,8 +93,11 @@ int main(int argc, char *argv[])
     network->get(QString("http://api.openweathermap.org/data/2.5/weather?q=%1&mode=json&units=metric&lang=zh_cn").arg(cityName));
     */
 
-    ClipboardDemo clipdemo;
-    clipdemo.show();
+    /*ClipboardDemo clipdemo;
+    clipdemo.show();*/
+
+    QtGuiApplication1 counttime;
+    counttime.show();
 	
 	return app.exec();
 }

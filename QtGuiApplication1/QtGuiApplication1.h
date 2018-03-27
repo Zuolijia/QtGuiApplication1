@@ -3,6 +3,9 @@
 #include <QtWidgets/QMainWindow>
 #include "ui_QtGuiApplication1.h"
 
+#include "WorkerThread.h"
+#include <QLCDNumber>
+
 class QtGuiApplication1 : public QMainWindow
 {
 	Q_OBJECT
@@ -12,4 +15,5 @@ public:
 
 private:
 	Ui::QtGuiApplication1Class ui;
+    QLCDNumber *lcdNumber;
 };
