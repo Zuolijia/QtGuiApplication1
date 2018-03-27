@@ -13,6 +13,7 @@
 #include "DragListDialog.h"
 #include "DataTableWidget.h"
 #include "ClipboardDemo.h"
+#include "NetWorker.h"
 
 class EventLabel :public QLabel
 {
@@ -85,6 +86,11 @@ int main(int argc, char *argv[])
     layout->addWidget(topTable);
     layout->addWidget(bottomTable);
     content.show();*/
+
+    /*NetWorker* network = NetWorker::instance();
+    QString cityName = "Beijing,cn";
+    network->get(QString("http://api.openweathermap.org/data/2.5/weather?q=%1&mode=json&units=metric&lang=zh_cn").arg(cityName));
+    */
 
     ClipboardDemo clipdemo;
     clipdemo.show();
